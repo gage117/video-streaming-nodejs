@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const fs = require('fs');
 
+const PORT = process.env.PORT || 3000;
+
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 })
@@ -30,6 +32,6 @@ app.get("/video", (req, res) => {
   videoStream.pipe(res);
 })
 
-app.listen(8000, function() {
-  console.log("listening on port 8000");
+app.listen(PORT, function() {
+  console.log(`listening on port ${PORT}`);
 })
